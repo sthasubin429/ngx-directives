@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NgxDirectivesComponent } from './ngx-directives.component';
+import { UnlessDirective } from './unless/unless.directive';
 
 @NgModule({
-  declarations: [NgxDirectivesComponent],
+  declarations: [UnlessDirective],
   imports: [],
-  exports: [NgxDirectivesComponent],
+  exports: [UnlessDirective],
 })
 export class NgxDirectivesModule {}
