@@ -5,10 +5,7 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 })
 export class UnlessDirective {
   private hasView: boolean = false;
-  constructor(
-    private templateRef: TemplateRef<unknown>,
-    private viewContainer: ViewContainerRef
-  ) {}
+  constructor(private templateRef: TemplateRef<unknown>, private viewContainer: ViewContainerRef) {}
 
   @Input() set ngxUnless(condition: boolean) {
     if (!condition && !this.hasView) {

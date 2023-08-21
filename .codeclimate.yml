@@ -1,0 +1,27 @@
+version: "2"
+checks:
+  similar-code:
+    config:
+      threshold: 65
+plugins:
+  eslint:
+    enabled: true
+    channel: "eslint-8"
+    config:
+      config: .eslintrc.json
+exclude_patterns:
+  - "config/"
+  - "db/"
+  - "dist/"
+  - "features/"
+  - "**/node_modules/"
+  - "script/"
+  - "**/test/"
+  - "**/tests/"
+  - "Tests/"
+  - "**/vendor/"
+  - "**/*_test.go"
+  - "**/*.d.ts"
+  - "**/*.spec.ts"
+  - "coverage/"
+  - ".lintstagedrc.mjs"
