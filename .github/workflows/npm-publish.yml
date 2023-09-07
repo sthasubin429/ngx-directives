@@ -29,6 +29,5 @@ jobs:
 
       - name: Publish package on NPM 📦
         run: npm publish --access public
-        working-directory: ngx-directives
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
