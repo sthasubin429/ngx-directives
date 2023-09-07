@@ -28,6 +28,7 @@ jobs:
         run: npm test -- --watch=false --browsers=ChromeHeadless
 
       - name: Publish package on NPM 📦
-        run: npm publish --registry=https://npm.pkg.github.com/
+        run: npm publish --access public
+        working-directory: ngx-directives
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
