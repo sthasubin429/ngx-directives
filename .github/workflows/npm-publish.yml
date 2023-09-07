@@ -20,7 +20,7 @@ jobs:
         run: pnpm run build
 
       - name: Run unit tests
-        run: npm run test -- --watch=false
+        run: npm test -- --watch=false --browsers=ChromeHeadless
 
       - name: Publish package on NPM 📦
         run: npm publish
