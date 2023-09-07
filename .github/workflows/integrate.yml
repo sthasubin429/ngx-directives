@@ -1,0 +1,18 @@
+name: Continuos Integration Workflow
+
+on:
+  pull_request:
+    branches: [main develop]
+
+jobs:
+  integrate_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - run: pnpm install
+      - run: pnpm run build
+      - run: npm run lint
+      - run: npm run test -- --watch=false
