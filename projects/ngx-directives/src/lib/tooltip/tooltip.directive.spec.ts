@@ -26,7 +26,7 @@ describe('TooltipDirective', () => {
     component = fixture.componentInstance;
     hostElement = fixture.debugElement.query(By.directive(TooltipDirective));
     tooltipDirective = hostElement.injector.get(TooltipDirective);
-    tooltipElement = tooltipDirective['tooltipElement']; // Access private property for testing
+    tooltipElement = tooltipDirective['tooltipElement'];
     fixture.detectChanges();
   });
 
