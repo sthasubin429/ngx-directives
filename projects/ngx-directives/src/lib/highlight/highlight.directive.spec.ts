@@ -7,13 +7,14 @@ import { HighlightDirective } from './highlight.directive';
   template: ` <p [ngxHighlight]="highlightColor">Highlight me!</p> `,
 })
 class TestComponent {
-  highlightColor: string | null = '#FF0000';
+  highlightColor: string | undefined;
 }
 
 describe('HighlightDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let component: TestComponent;
   let directiveElement: DebugElement;
+
   const rgb2hex = (rgb: any): string =>
     `#${rgb
       .match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
@@ -46,12 +47,12 @@ describe('HighlightDirective', () => {
   });
 
   it('should not apply background color if color is not provided', () => {
-    component.highlightColor = null;
+    component.highlightColor = undefined;
     fixture.detectChanges();
 
     const pElement = directiveElement.nativeElement;
-    const backgroundColor = getComputedStyle(pElement).getPropertyValue('background-color');
+    const backgroundColor = rgb2hex(getComputedStyle(pElement).getPropertyValue('background-color'));
 
-    expect(backgroundColor).not.toBe('');
+    expect(backgroundColor).toBe('#ffff00');
   });
 });

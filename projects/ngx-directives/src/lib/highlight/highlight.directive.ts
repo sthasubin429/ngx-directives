@@ -7,6 +7,7 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
   selector: '[ngxHighlight]',
 })
 export class HighlightDirective {
+  private defaultColor: string = '#FFFF00';
   /**
    * Constructor of the HighlightDirective class.
    * @param el - The element on which the directive is applied.
@@ -19,6 +20,6 @@ export class HighlightDirective {
    * @param color - The color to be used for highlighting.
    */
   @Input() set ngxHighlight(color: string) {
-    this.renderer.setStyle(this.el.nativeElement, 'background-color', color);
+    this.renderer.setStyle(this.el.nativeElement, 'background-color', color || this.defaultColor);
   }
 }
